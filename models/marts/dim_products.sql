@@ -7,8 +7,7 @@ with
         select *
         from {{ ref('stg_erp_categories') }}
     ),
-    erp_suppliers as (
-        
+    erp_suppliers as (    
         select *
         from {{ ref('stg_erp_suppliers') }}
     ),
@@ -28,7 +27,7 @@ with
             erp_categories.nome_categoria,					
             erp_categories.descricao_categoria,	
             --erp_suppliers.id_fornecedor,						
-            erp_suppliers.nome_compania,					
+            erp_suppliers.nome_fornecedor,					
             erp_suppliers.nome_contato, 	
         	erp_suppliers.endereco,
             erp_suppliers.cidade,
