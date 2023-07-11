@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: dim_products
+    description: Dimensão de produtos da Northwind.
+    columns:
+      - name: id_produto
+        description: Chave primária da tabela funcionários.
+        tests:
+          - unique
+          - not_null
+      
