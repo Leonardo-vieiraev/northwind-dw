@@ -7,11 +7,16 @@ with
         select *
         from {{ ref('stg_erp_order_details') }}
     )
+    , clientes as (
+        select * 
+        from {{ ref('stg_erp_customers') }}
+    )
     , join_pedidos_itens as (
         select
             pedidos.id_pedido
             , pedidos.id_funcionario
             , pedidos.id_cliente
+            , clientes.nome_compania_cliente
             , pedidos.id_transportadora
             , pedido_itens.id_produto
             , pedido_itens.desconto_perc
@@ -29,6 +34,7 @@ with
             , pedidos.pais_destinatario
         from pedido_itens
         left join pedidos on pedido_itens.id_pedido = pedidos.id_pedido
+        left join clientes on pedidos.id_cliente = clientes.id_cliente
     )
     , chave_vendas as (
         select

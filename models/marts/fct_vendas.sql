@@ -17,6 +17,8 @@ with
             , pedidos_itens.id_pedido
             , produtos.id_produto
             , employees.funcionario_id
+            , pedidos_itens.id_cliente
+            , pedidos_itens.nome_compania_cliente
             , pedidos_itens.id_transportadora
             , pedidos_itens.desconto_perc
             , pedidos_itens.preco_da_unidade
